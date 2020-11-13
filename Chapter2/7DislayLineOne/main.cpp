@@ -19,4 +19,6 @@ int main()
         std::cin.get();
         std::cout << i << ": " << v[i] << std::endl;
     }
+
+    return 0;
 }

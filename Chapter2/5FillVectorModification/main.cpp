@@ -18,4 +18,6 @@ int main()
     {
         std::cout << i << ": " << v[i] << std::endl;
     }
+
+    return 0;
 }
