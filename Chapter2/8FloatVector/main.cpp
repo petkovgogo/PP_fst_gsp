@@ -14,4 +14,6 @@ int main()
     {
         std::cout << v[i] << std::endl;
     }
+
+    return 0;
 }
