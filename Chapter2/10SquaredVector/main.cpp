@@ -9,7 +9,20 @@ int main()
     {
         v.push_back(i * 3.14);
     }
+
+    std::cout << "Before: ";
+
+    for (int i = 0; i < v.size(); i++)
+    {
+        std::cout << v[i] << "  ";
+    }
+
+    for (int i = 0; i < v.size(); i++)
+    {
+        v[i] *= v[i];
+    }
     
+    std::cout << "\nAfter: ";
     for (int i = 0; i < v.size(); i++)
     {
         std::cout << v[i] << "  ";
