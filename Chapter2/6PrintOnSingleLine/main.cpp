@@ -14,7 +14,12 @@ int main()
         v.push_back(line);
     }
 
-    line = std::string(v.begin(), v.end());
+    std::string output;
 
-    std::cout << line << std::endl;
+    for (int i = 0; i < v.size(); i++)
+    {
+        output += v[i];
+    }
+
+    std::cout << output << std::endl;
 }
