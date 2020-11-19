@@ -16,8 +16,8 @@ int main()
 
     for (int i = 0; i < v.size(); i++)
     {
+        std::cout << i << ": " << v[i];
         std::cin.get();
-        std::cout << i << ": " << v[i] << std::endl;
     }
 
     return 0;
