@@ -19,4 +19,6 @@ int main()
     std::cout << "i || j is " << (i || j) << std::endl;
     std::cout << " (i < 10) && (j < 10) is "
               << ((i < 10) && (j < 10)) << std::endl;
+
+    return 0;
 }
