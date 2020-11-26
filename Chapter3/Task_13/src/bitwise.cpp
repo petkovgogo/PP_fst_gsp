@@ -54,4 +54,6 @@ int main()
     PR("a rotated right -> ", ror(a));
     PR("b rotated left -> ", rol(b));
     PR("b rotated right -> ", ror(b));
+
+    return 0;
 }
