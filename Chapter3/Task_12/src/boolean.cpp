@@ -19,4 +19,6 @@ int main()
     std::cout << "i or j is " << (i or j) << std::endl;
     std::cout << " (i < 10) and (j < 10) is "
               << ((i < 10) and (j < 10)) << std::endl;
+
+    return 0;
 }

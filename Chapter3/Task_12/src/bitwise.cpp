@@ -47,4 +47,6 @@ int main()
     PR("b and_eq c; b = ", b);
     b xor_eq a;
     PR("b xor_eq a; b = ", b);
+
+    return 0;
 }
