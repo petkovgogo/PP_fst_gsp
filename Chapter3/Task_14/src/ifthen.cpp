@@ -17,4 +17,6 @@ int main()
     (i > 5) ? std::cout << "5 < i < 10" << std::endl :
     std::cout << "i <= 5" << std::endl :
     std::cout << "i >= 10" << std::endl;
+
+    return 0;
 }
