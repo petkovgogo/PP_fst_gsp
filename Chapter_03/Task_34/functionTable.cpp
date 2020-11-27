@@ -33,4 +33,6 @@ int main()
             continue;
         std::cout << (*func_table[c - 'a'])() << std::endl;
     }
+
+    return 0;
 }
