@@ -1,9 +1,7 @@
 CPP := g++
 EXECUTABLE := program
 
-run: ./${EXECUTABLE}
-	clear
-	./${EXECUTABLE}
-
-./${EXECUTABLE}: ./*.cpp
-	${CPP} $^ -o $@
+.SUFFIXES: . .cpp
+.cpp.:
+	$(CPP) $< -o ${EXECUTABLE}
+all: ./*.
