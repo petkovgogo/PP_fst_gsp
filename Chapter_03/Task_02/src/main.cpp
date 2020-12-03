@@ -1,20 +1,23 @@
 #include <iostream>
-#include <math.h>
-
-#define RANGE 175
+#include <cmath>
 
 int main()
 {
-    bool isPrime = true;
+    const int range = 175;
+    int numRoot = 0;
+    bool isPrime;
 
-    std::cout << "Prime numbers [2; " << RANGE << "]:" << std::endl;
-    for (int i = 2; i <= RANGE; i++)
+    std::cout << "Prime numbers [2; " << range << "]:" << std::endl;
+    for (int i = 2; i <= range; i++)
     {
-        for (int j = 2; j <= sqrt(i); j++)
+        isPrime = true;
+        numRoot = sqrt(i);
+        for (int j = 2; j <= numRoot; j++)
         {
             if (i % j == 0)
             {
                 isPrime = false;
+                break;
             }
         }
 
@@ -22,11 +25,9 @@ int main()
         {
             std::cout << " " << i;
         }
-        else
-        {
-            isPrime = true;
-        }
     }
+
+    std::cout << std::endl;
 
     return 0;
 }
