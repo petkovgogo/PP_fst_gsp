@@ -21,7 +21,8 @@ void reasignValues(double arr[], int size)
 
 int main()
 {
-    #define SIZE 6
+    const int SIZE = 6;
+    
     double arr[SIZE]{0};
     PRINT_ARR(arr, SIZE);
 
