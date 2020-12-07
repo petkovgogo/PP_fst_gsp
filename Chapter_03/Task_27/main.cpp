@@ -1,6 +1,7 @@
 #include <iostream>
 
-#define SIZE 5
+const int SIZE = 5;
+
 #define PRINT_ARR(VAR)       \
     std::cout << #VAR " = [";        \
     for (int i = 0; i < SIZE; i++) \
