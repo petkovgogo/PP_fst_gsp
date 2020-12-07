@@ -1,9 +1,6 @@
 #include <cstdlib>
 #include <iostream>
 
-#define SIGN_BIT 1
-#define EXPONENT_RANGE 2 // 1 byte and a half
-
 void printBinary(const unsigned char val, int startBit, int endBit)
 {
     for (int i = startBit; i >= endBit; i--)
@@ -21,6 +18,9 @@ void printBinary(const unsigned char val, int startBit, int endBit)
 
 int main(int argc, char *argv[])
 {
+    const int SIGN_BIT = 1;
+    const int EXPONENT_RANGE = 2; // 1 byte and a half
+
     // if (argc != 2)
     // {
     //     std::cout << "Must provide a number" << std::endl;
