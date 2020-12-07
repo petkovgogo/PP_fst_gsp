@@ -3,11 +3,11 @@
 
 int main()
 {
-    const int count = 25;
+    const int COUNT = 25;
 
     Stash doubleStash;
     doubleStash.initialize(sizeof(double));
-    for (int i = 1; i <= count; i++)
+    for (int i = 1; i <= COUNT; i++)
     {
         doubleStash.add(new double(i * 6.63));
     }
