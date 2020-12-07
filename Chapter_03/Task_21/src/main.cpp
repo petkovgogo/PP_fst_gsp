@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 
-#define SIZE 7
-
 int main()
 {
+    const int SIZE = 10;
+    
     std::string arr[SIZE];
 
     for (int i = 0; i < SIZE; i++)
