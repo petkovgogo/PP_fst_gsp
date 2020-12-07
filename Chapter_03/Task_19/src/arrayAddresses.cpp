@@ -1,6 +1,7 @@
 #include <iostream>
 
-#define SIZE 5
+const int SIZE = 5;
+
 #define PRINT_ELEMENT_ADDRESSES(TYPE, ARR)\
     std::cout << "sizeof("#TYPE") = " << sizeof(TYPE) << std::endl;\
     for (int i = 0; i < SIZE; i++)\
