@@ -1,41 +1,54 @@
 #include <iostream>
 
+enum Choice 
+{
+    Duck,
+    Dragon,
+    InvalidChoice = -1
+};
+
 int main()
 {
     std::string input;
-    int choice = -1;
+    Choice choice;
     bool quit = false;
 
     while (true)
     {
+        if (quit)
+        {
+            break;
+        }
+
         std::cout << "Input duck, dragon or quit" << std::endl;
         std::cin >> input;
         if (input == "duck")
         {
-            choice = 0;
+            choice = Duck;
         }
         else if (input == "dragon")
         {
-            choice = 1;
+            choice = Dragon;
         }
         else if (input == "quit")
         {
-            choice = 2;
+            quit = true;
+            continue;
         }
         else
         {
-            choice = -1;
+            choice = InvalidChoice;
         }
 
         switch (choice)
         {
-        case 0:
+        case Duck:
             std::cout << "    _\n"
                          ".__(.)< (MEOW)\n"
                          " \\___)\n"
                       << std::endl;
             break;
-        case 1:
+        case Dragon:
             std::cout << "     \\\n"
                          "      \\                    ^    /^\n"
                          "       \\                  / \\  // \\\n"
@@ -55,19 +68,10 @@ int main()
                          "                    ///-._ _ _ _ _ _ _{^ - - - - ~\""
                       << std::endl;
             break;
-        case 2:
-            quit = true;
-            break;
         default:
             std::cout << "Invalid input!" << std::endl;
             break;
         }
-
-        if (quit)
-        {
-            break;
-        }
-        
     }
 
     return 0;
