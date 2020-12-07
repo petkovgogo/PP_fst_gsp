@@ -1,10 +1,11 @@
 #include <iostream>
 
-#define SIZE 10
 #define P(EX) std::cout << #EX << ": " << EX << std::endl;
 
 int main()
 {
+    const int SIZE = 10;
+
     long longArr[SIZE];
     for (int i = 0; i < SIZE; i++)
     {
