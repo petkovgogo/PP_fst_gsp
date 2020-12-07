@@ -1,15 +1,12 @@
 #include <iostream>
 
-#define SIZE 8
-#define BYTE_RANGE 16
-#define SUBSTITUTION_VALUE 42
-#define PRINT_ARR(VAR, LENGTH)              \
-    std::cout << #VAR" = [";         \
-    for (int i = 0; i < LENGTH; i++)  \
-    {                               \
-        std::cout << " " << VAR[i]; \
-    }                               \
-                                    \
+#define PRINT_ARR(VAR, LENGTH)       \
+    std::cout << #VAR " = [";        \
+    for (int i = 0; i < LENGTH; i++) \
+    {                                \
+        std::cout << " " << VAR[i];  \
+    }                                \
+                                     \
     std::cout << " ]" << std::endl;
 
 void setBytes(void *vpArr, int byteRange, int value)
@@ -26,6 +23,10 @@ void setBytes(void *vpArr, int byteRange, int value)
 
 int main()
 {
+    const int SIZE = 8;
+    const int BYTE_RANGE = 16;
+    const int SUBSTITUTION_VALUE = 42;
+ 
     int arr[SIZE]{0};
     PRINT_ARR(arr, SIZE);
 
