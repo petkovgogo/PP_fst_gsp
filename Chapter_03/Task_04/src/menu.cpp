@@ -3,18 +3,17 @@
 int main()
 {
     char choice;
-    bool quit = false;
 
     while (true)
     {
-        if (quit)
-        {
-            break;
-        }
-
         std::cout << "MAIN MENU:" << std::endl;
         std::cout << "l: left, r: right, q: quit -> ";
         std::cin >> choice;
+
+        if (choice == 'q')
+        {
+            break;
+        }
 
         switch (choice)
         {
@@ -35,6 +34,7 @@ int main()
                 std::cout << "you didn't choose a or b!" << std::endl;
                 break;
             }
+
             break;
         case 'r':
             std::cout << "RIGHT MENU:" << std::endl;
@@ -53,9 +53,7 @@ int main()
                 std::cout << "you didn't choose c or d!" << std::endl;
                 break;
             }
-            break;
-        case 'q':
-            quit = true;
+            
             break;
         default:
             std::cout << "you must type l or r or q!" << std::endl;
