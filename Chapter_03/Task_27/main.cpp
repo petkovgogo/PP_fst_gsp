@@ -2,13 +2,13 @@
 
 const int SIZE = 5;
 
-#define PRINT_ARR(VAR)       \
-    std::cout << #VAR " = [";        \
-    for (int i = 0; i < SIZE; i++) \
-    {                                \
-        std::cout << " " << VAR[i];  \
-    }                                \
-                                     \
+#define PRINT_ARR(VAR)                  \
+    std::cout << #VAR " = [";           \
+    for (int i = 0; i < SIZE; i++)      \
+    {                                   \
+        std::cout << " " << VAR[i];     \
+    }                                   \
+                                        \
     std::cout << " ]" << std::endl;
 
 int main()
