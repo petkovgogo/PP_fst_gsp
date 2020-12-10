@@ -2,13 +2,14 @@
 
 const int SIZE = 5;
 
-#define PRINT_ELEMENT_ADDRESSES(TYPE, ARR)\
-    std::cout << "sizeof("#TYPE") = " << sizeof(TYPE) << std::endl;\
-    for (int i = 0; i < SIZE; i++)\
-    {\
-        std::cout << "&arr[" << i << "] = " << (long)&ARR[i] << std::endl;\
-    }\
-    \
+// Не използвам функция, защото ми е по-удобно да изпринтя sizeof(типа) чрез #
+#define PRINT_ELEMENT_ADDRESSES(TYPE, ARR)                                  \
+    std::cout << "sizeof("#TYPE") = " << sizeof(TYPE) << std::endl;         \
+    for (int i = 0; i < SIZE; i++)                                          \
+    {                                                                       \
+        std::cout << "&arr[" << i << "] = " << (long)&ARR[i] << std::endl;  \
+    }                                                                       \
+                                                                            \
     std::cout << std::endl; 
 
 int main()
