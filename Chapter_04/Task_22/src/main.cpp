@@ -6,16 +6,13 @@
 #include "../inc/Stash.h"
 #include "../inc/Stack.h"
 
-int main()
+void inputData(Stack &stack)
 {
     const int MAX_WORD_LENGTH = 30; // in bytes
 
     std::ifstream file("../inc/dummy.txt");
     std::string entry;
     std::vector<std::string> lines;
-
-    Stack stack;
-    stack.initialize();
 
     while (getline(file, entry))
     {
@@ -40,6 +37,11 @@ int main()
         line.clear();
         stack.push(p_stringStash);
     }
+}
+
+void printStack(Stack &stack)
+{
+    Stash *p_stringStash;
 
     while ((p_stringStash = (Stash *)stack.pop()) != 0)
     {
@@ -52,6 +54,16 @@ int main()
 
         delete p_stringStash;
     }
+}
+
+int main()
+{
+
+    Stack stack;
+    stack.initialize();
+
+    inputData(stack);
+    printStack(stack);
 
     stack.cleanup();
 
