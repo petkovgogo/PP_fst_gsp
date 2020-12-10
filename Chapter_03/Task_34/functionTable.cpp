@@ -19,18 +19,26 @@ DF(g);
 std::string (*func_table[])() = {a, b, c, d, e, f, g};
 int main()
 {
-    while (1)
+    char c;
+
+    while (true)
     {
         std::cout << "press a key from 'a' to 'g' "
                      "or q to quit"
                   << std::endl;
-        char c, cr;
         std::cin.get(c);
-        std::cin.get(cr); // second one for CR
+        std::cin.get(); // second one for new line
+        
         if (c == 'q')
-            break; // ... out of while(1)
+        {
+            break;
+        }
+
         if (c < 'a' || c > 'g')
+        {
             continue;
+        }
+
         std::cout << (*func_table[c - 'a'])() << std::endl;
     }
 
