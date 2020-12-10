@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../inc/LinkedList.h"
 
-void LinkedListFunc::createList(LinkedList &linkedList, int size)
+void createList(LinkedList &linkedList, int size)
 {
     LinkedList *p_list = &linkedList;
     for (int i = 0; i < size - 1; i++)
@@ -15,7 +15,7 @@ void LinkedListFunc::createList(LinkedList &linkedList, int size)
     p_list->next = 0;
 }
 
-void LinkedListFunc::printList(LinkedList &linkedList)
+void printList(LinkedList &linkedList)
 {
     LinkedList *p_list = &linkedList;
     while (p_list != 0)
@@ -26,7 +26,7 @@ void LinkedListFunc::printList(LinkedList &linkedList)
     }
 }
 
-void LinkedListFunc::cleanup(LinkedList &linkedList)
+void cleanup(LinkedList &linkedList)
 {
     LinkedList *p_list = linkedList.next;
     LinkedList *p_next;

@@ -7,11 +7,8 @@ struct LinkedList
     LinkedList *next;
 };
 
-namespace LinkedListFunc
-{
-    void createList(LinkedList &linkedList, int size);
-    void printList(LinkedList &linkedList);
-    void cleanup(LinkedList &linkedList);
-}
+void createList(LinkedList &linkedList, int size);
+void printList(LinkedList &linkedList);
+void cleanup(LinkedList &linkedList);
 
 #endif // LINKED_LIST_H

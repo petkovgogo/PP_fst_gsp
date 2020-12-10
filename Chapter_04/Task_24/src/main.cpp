@@ -4,10 +4,10 @@ int main()
 {
     const int SIZE = 8;
     LinkedList linkedList;
-    LinkedListFunc::createList(linkedList, SIZE);
+    createList(linkedList, SIZE);
 
-    LinkedListFunc::printList(linkedList);
-    LinkedListFunc::cleanup(linkedList);
+    printList(linkedList);
+    cleanup(linkedList);
 
     return 0;
 }
