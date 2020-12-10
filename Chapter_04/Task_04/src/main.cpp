@@ -1,9 +1,9 @@
 #include "../inc/Person.h"
 
-#define AGE 17
-
 int main()
 {
+    const int AGE = 17;
+
     Person person;
     setAge(person, AGE);
 
