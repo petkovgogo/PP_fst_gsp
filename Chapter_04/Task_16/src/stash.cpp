@@ -8,6 +8,7 @@ void Stash::initialize(int sz)
     size = sz;
     next = 0;
 }
+
 int Stash::add(const void *element)
 {
     unsigned char *e = (unsigned char *)element;
@@ -19,6 +20,7 @@ int Stash::add(const void *element)
     next++;
     return (next - 1); // Index number
 }
+
 void *Stash::fetch(int index)
 {
     // Check index boundaries:
@@ -31,6 +33,7 @@ void *Stash::fetch(int index)
     // Produce pointer to desired element:
     return &(storage[index * size]);
 }
+
 int Stash::count()
 {
     return next; // Number of elements in CStash
@@ -42,5 +45,6 @@ void Stash::cleanup()
     {
         std::cout << "freeing storage" << std::endl;
         storage.clear();
+        storage.shrink_to_fit();
     }
 }
