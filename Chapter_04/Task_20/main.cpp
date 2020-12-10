@@ -33,7 +33,7 @@ int main()
 
     PRINT(sizeof(point));
     PRINT(sizeof(calculator));
-    PRINT(sizeof(emptyStruct)); // Празните структури имат размер 1 byte, за да не съвпада адресът на обектите им с този на друг обект
+    PRINT(sizeof(emptyStruct)); // Empty structures have a size of 1 byte so that their addresses don't overlap with another object's address
 
     return 0;
 }
