@@ -12,6 +12,7 @@ Person::Person(std::string firstName, std::string lastName)
 
 Person::~Person() {}
 
+// Set the date rented to current date
 void Person::setDateRented()
 {
     time_t currTime = time(0);
@@ -20,6 +21,7 @@ void Person::setDateRented()
 
 void Person::setDateDue(struct tm dateDue)
 {
+    // Perform different checks to assure the due date is correct
     bool yearCheck = dateDue.tm_year < m_dateRented.tm_year;
     bool monthCheck = dateDue.tm_mon < m_dateRented.tm_mon;
     bool dayCheck = dateDue.tm_mday <= m_dateRented.tm_mday;

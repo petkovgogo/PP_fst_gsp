@@ -8,7 +8,7 @@ static int id = 0;
 
 VideoTape::VideoTape(std::string name, double rentPrice, int totalCopies)
 {
-    m_id = ++id;
+    m_id = ++id; // The id increases with every created instance
     m_name = name;
     m_rentPrice = rentPrice;
     m_rentedCopies = 0;
@@ -38,13 +38,14 @@ void VideoTape::rent(Person &person, int daysRented)
         {
             person.setDateRented();
 
-            try
+            try // ... to create a due date by adding n days to the departure date
             {
                 struct tm tempDate = tm(person.getDateRented());
                 tempDate.tm_mday += daysRented;
 
                 person.setDateDue(tempDate);
 
+                // If the due date is correct, add this person to the list of renters
                 m_renters.push_back(&person);
                 m_rentedCopies++;
                 m_timesRented++;
