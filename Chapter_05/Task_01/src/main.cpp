@@ -8,13 +8,13 @@ int main()
 
     Person person(FIRST_NAME, LAST_NAME, AGE);
 
-    person.m_firstName = "Stoyan";
-    person.m_lastName = "Glaushev";
-    person.m_age = 31;
+    //person.m_firstName = "Stoyan";
+    //person.m_lastName = "Glaushev";
+    //person.m_age = 31;
 
     person.m_hobbies.push_back("Sailing");
     
-    person.singFavSong();
+    //person.singFavSong();
     person.introduceSelf();
     
     return 0;
