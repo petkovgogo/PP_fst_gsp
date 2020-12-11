@@ -9,12 +9,10 @@ void printStack(StashStack &stashStack)
 
     while ((p_stringStash = (Stash *)stashStack.pop()) != 0)
     {
-        for (int i = 0; i < p_stringStash->count(); i++)
+        for (int i = p_stringStash->count() - 1; i >= 0; i--)
         {
-            std::cout << (char *)p_stringStash->fetch(i) << " ";
+            std::cout << (char *)p_stringStash->fetch(i) << std::endl;
         }
-
-        std::cout << std::endl;
 
         delete p_stringStash;
     }
