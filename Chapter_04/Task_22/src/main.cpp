@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <sstream>
 #include <string>
 #include <vector>
 #include "../inc/Stash.h"
@@ -8,7 +7,7 @@
 
 void inputData(Stack &stack)
 {
-    const int MAX_WORD_LENGTH = 30; // in bytes
+    const int MAX_ROW_LENGTH = 200; // in bytes
 
     std::ifstream file("../inc/dummy.txt");
     std::string entry;
@@ -20,21 +19,17 @@ void inputData(Stack &stack)
     }
 
     Stash *p_stringStash;
-    std::istringstream line;
 
-    for (int i = lines.size() - 1; i >= 0; i--)
+    for (int i = lines.size() - 1; i >= 0; i -= 5)
     {
         p_stringStash = new Stash;
-        p_stringStash->initialize(MAX_WORD_LENGTH);
+        p_stringStash->initialize(MAX_ROW_LENGTH);
 
-        line.str(lines[i]);
-
-        while (line >> entry)
+        for (int j = i; (j >= 0) && (j > i - 5); j--)
         {
-            p_stringStash->add(entry.c_str());
+            p_stringStash->add(lines[j].c_str());
         }
 
-        line.clear();
         stack.push(p_stringStash);
     }
 }
@@ -45,12 +40,10 @@ void printStack(Stack &stack)
 
     while ((p_stringStash = (Stash *)stack.pop()) != 0)
     {
-        for (int i = 0; i < p_stringStash->count(); i++)
+        for (int i = p_stringStash->count() - 1; i >= 0; i--)
         {
-            std::cout << (char *)p_stringStash->fetch(i) << " ";
+            std::cout << (char *)p_stringStash->fetch(i) << std::endl;
         }
-
-        std::cout << std::endl;
 
         delete p_stringStash;
     }
