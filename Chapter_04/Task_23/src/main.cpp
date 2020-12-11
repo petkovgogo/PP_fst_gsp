@@ -7,7 +7,7 @@ void printStack(StashStack &stashStack)
 {
     Stash *p_stringStash;
 
-    while ((p_stringStash = (Stash *)stashStack.pop()) != 0)
+    while ((p_stringStash = stashStack.pop()) != 0)
     {
         for (int i = p_stringStash->count() - 1; i >= 0; i--)
         {
