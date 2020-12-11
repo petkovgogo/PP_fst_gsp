@@ -1,5 +1,16 @@
 #include <iostream>
 
+typedef enum
+{
+    Green,
+    Red,
+    Blue,
+    Cyan,
+    Magenta,
+    Yellow,
+    Black
+} Colors;
+
 enum Weekdays
 {
     Monday,
@@ -11,7 +22,13 @@ enum Weekdays
     Sunday
 };
 
-union IntegerBytes
+typedef union
+{
+    char bytes[sizeof(int)];
+    int number;
+} IntegerBytes2;
+
+union IntegerBytes1
 {
     char bytes[sizeof(int)];
     int number;
@@ -36,12 +53,23 @@ void printBinary(const unsigned char val)
 
 int main()
 {
+    Colors colour = Blue;
     Weekdays weekday = Wednesday;
-    IntegerBytes integerBytes;
-    integerBytes.number = 42;
-
-    std::cout << weekday << std::endl;
-    printBinary(integerBytes.bytes[0]);
     
+    IntegerBytes1 integerBytes1;
+    integerBytes1.number = 42;
+
+    IntegerBytes2 integerBytes2;
+    integerBytes2.number = 42;
+
+    std::cout << "Colour: " << colour << std::endl;
+    std::cout << "Weekday: " << weekday << std::endl;
+
+    std::cout << "Int bytes 1: " << std::endl;
+    printBinary(integerBytes1.bytes[0]);
+    
+    std::cout << "Int bytes 2: " << std::endl;
+    printBinary(integerBytes2.bytes[0]);
+
     return 0;
 }
