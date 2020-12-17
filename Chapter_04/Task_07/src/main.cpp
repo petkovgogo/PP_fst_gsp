@@ -18,5 +18,7 @@ int main()
         *(double*)doubleStash.fetch(i) << std::endl;
     }
     
+    doubleStash.cleanup();
+    
     return 0;
 }
