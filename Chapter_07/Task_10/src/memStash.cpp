@@ -2,8 +2,6 @@
 #include "../inc/Mem2.h"
 #include "../inc/MemStash.h"
 
-const int INFLATE_SIZE = 20;
-
 MemStash::MemStash(int dataSize, int initQuantity)
 {
     m_dataSize = dataSize;
@@ -22,7 +20,7 @@ void MemStash::add(void *data)
 
     if (m_mem->msize() < m_dataSize * m_elementCount)
     {
-        storage = m_mem->pointer(m_mem->msize() + INFLATE_SIZE);
+        storage = m_mem->pointer(m_mem->msize() * 2);
     }
     else
     {
