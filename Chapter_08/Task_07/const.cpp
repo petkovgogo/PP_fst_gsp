@@ -1,0 +1,1 @@
+extern const int NUM = 42;
