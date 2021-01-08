@@ -9,7 +9,7 @@ int func(double num)
 
 int main()
 {
-    pFunc ptr = &func;
+    pFunc ptr = func;
 
     std::cout << ptr(9.81) << std::endl;
     
