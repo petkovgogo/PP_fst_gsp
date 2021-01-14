@@ -18,7 +18,7 @@ void MemStash::add(void *data)
 {
     byte *storage;
 
-    if (m_mem->msize() < m_dataSize * m_elementCount)
+    if (m_mem->msize() < m_dataSize * (m_elementCount + 1))
     {
         storage = m_mem->pointer(m_mem->msize() * 2);
     }

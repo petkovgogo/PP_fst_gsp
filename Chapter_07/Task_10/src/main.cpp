@@ -5,8 +5,11 @@ int main()
 {
     MemStash intStash(sizeof(int));
 
-    intStash.add(new int(42));
-    intStash.add(new int(415));
+    for (int i = 0; i < 10; i++)
+    {
+        intStash.add(new int(i));
+    }
+    
 
     for (int i = 0; i < intStash.size(); i++)
     {
