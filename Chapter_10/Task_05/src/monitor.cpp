@@ -3,6 +3,16 @@
 
 int Monitor::m_incidents = 0;
 
+Monitor::Monitor()
+{
+    std::cout << "Call of Monitor constructor" << std::endl;
+}
+
+Monitor::~Monitor()
+{
+    std::cout << "Call of Monitor destructor" << std::endl;
+}
+
 void Monitor::incident()
 {
     m_incidents++;
