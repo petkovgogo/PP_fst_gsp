@@ -1,27 +1,29 @@
 #include <iostream>
+#include <cstring>
 
 #define PRINT_ADDRESS_AND_VALUE(EXP)                            \
-    std::cout <<                                                \
-            #EXP ":" << std::endl <<                            \
-            " Address: " << (long)(void *)EXP << std::endl <<   \
-            " Value: " << EXP << std::endl;
+    std::cout << #EXP ":" << std::endl                          \
+              << " Address: " << (long)EXP << std::endl \
+              << " Value: " << EXP << std::endl;
 
 char *func(const char *text)
 {
-    const int SIZE = sizeof(text) / sizeof(text[0]);
-    char *newText = new char[SIZE];
+    const int SIZE = strlen(text);
+    char *newText = new char[SIZE + 1]; // + 1 for the '\0'
 
     for (int i = 0; i < SIZE; i++)
     {
         newText[i] = text[i];
     }
 
+    newText[SIZE] = '\0';
+
     return newText;
 }
 
 int main()
 {
-    char *copy1 = func("text");
+    char *copy1 = func("sample text");
     char *copy2 = func(copy1);
 
     PRINT_ADDRESS_AND_VALUE(copy1);
