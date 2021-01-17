@@ -2,9 +2,7 @@
 
 int main()
 {
-    StaticMembers smObj;
-
-    smObj.printValues();
+    StaticMembers::printValues();
 
     return 0;
 }
