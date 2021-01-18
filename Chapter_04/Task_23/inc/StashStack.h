@@ -10,7 +10,7 @@ struct StashStack
     StashStack();
     void push(Stash *element);
     void push(std::ifstream &file);
-    Stash *pop();
+    const char *pop();
     void cleanup();
 
 private:

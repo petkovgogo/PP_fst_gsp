@@ -1,5 +1,6 @@
 #include <fstream>
 #include <string>
+#include <cstring>
 #include <vector>
 #include "../inc/StashStack.h"
 #include "../inc/Stack.h"
@@ -20,7 +21,7 @@ void StashStack::push(Stash *element)
 void StashStack::push(std::ifstream &file)
 {
     const int MAX_ROW_LENGTH = 200; // in bytes
-    
+
     std::string entry;
     std::vector<std::string> lines;
 
@@ -45,9 +46,30 @@ void StashStack::push(std::ifstream &file)
     }
 }
 
-Stash *StashStack::pop()
+const char *StashStack::pop()
 {
-    return (Stash *)m_stack.pop();
+    Stash *p_stringStash = (Stash *)m_stack.pop();
+    
+    if (p_stringStash == 0)
+    {
+        return 0;
+    }
+
+    std::string contents;
+
+    for (int i = p_stringStash->count() - 1; i >= 0; i--)
+    {
+        contents += (char *)p_stringStash->fetch(i);
+        contents += "\n";
+    }
+
+    char *data = new char[contents.size()];
+
+    strcpy(data, contents.c_str());
+    p_stringStash->cleanup();
+    delete p_stringStash;
+
+    return data;
 }
 
 void StashStack::cleanup()

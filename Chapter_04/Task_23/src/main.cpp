@@ -5,16 +5,13 @@
 
 void printStack(StashStack &stashStack)
 {
-    Stash *p_stringStash;
+    const char *p_contents;
 
-    while ((p_stringStash = stashStack.pop()) != 0)
+    while ((p_contents = stashStack.pop()) != 0)
     {
-        for (int i = p_stringStash->count() - 1; i >= 0; i--)
-        {
-            std::cout << (char *)p_stringStash->fetch(i) << std::endl;
-        }
+        std::cout << p_contents;
 
-        delete p_stringStash;
+        delete p_contents;
     }
 }
 

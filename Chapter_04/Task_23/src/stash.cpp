@@ -68,7 +68,7 @@ void Stash::cleanup()
 {
     if (storage != 0)
     {
-        std::cout << "freeing storage" << std::endl;
+        // std::cout << "freeing storage" << std::endl; // messes up the output
         delete[] storage;
     }
 }

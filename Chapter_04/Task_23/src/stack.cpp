@@ -24,10 +24,14 @@ void *Stack::peek()
 void *Stack::pop()
 {
     if (head == 0)
+    {
         return 0;
+    }
+
     void *result = head->data;
     Link *oldHead = head;
     head = head->next;
+    
     delete oldHead;
     return result;
 }
