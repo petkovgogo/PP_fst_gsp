@@ -45,6 +45,8 @@ void printStack(Stack &stack)
             std::cout << (char *)p_stringStash->fetch(i) << std::endl;
         }
 
+        p_stringStash->cleanup();
+
         delete p_stringStash;
     }
 }
