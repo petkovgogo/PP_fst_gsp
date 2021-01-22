@@ -20,4 +20,6 @@ int main()
     a = y; // automatically dereferenced
 
     std::cout << "x = " << x << std::endl; // value is changed
+
+    return 0;
 }
