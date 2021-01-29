@@ -8,7 +8,7 @@ private:
 public:
     Integer(int num = 0) : m_num(num) {}
 
-    Integer operator+(Integer &op) { return Integer(m_num + op.m_num); }
+    const Integer operator+(const Integer &op) const { return Integer(m_num + op.m_num); }
     void print(std::ostream &out) const
     {
         out << m_num << std::endl;
