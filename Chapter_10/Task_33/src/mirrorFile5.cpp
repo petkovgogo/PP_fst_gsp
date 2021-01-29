@@ -3,9 +3,7 @@
 #include <iostream>
 #include "../inc/Mirror.h"
 
-extern Mirror mirror3;
-
-Mirror mirror4(mirror3);
+Mirror *mirror4;
 
 int main()
 {
@@ -13,7 +11,7 @@ int main()
     // but the output was always true. I also tried compiling the files one-by-one and linking the .o files
     // in different order, but the result was the same
 
-    std::cout << (mirror4.test() ? "true" : "false") << std::endl;
+    std::cout << ((*mirror4).test() ? "true" : "false") << std::endl;
 
     return 0;
 }

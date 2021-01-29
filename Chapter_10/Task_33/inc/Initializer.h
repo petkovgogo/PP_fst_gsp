@@ -3,7 +3,11 @@
 
 #include "../inc/Mirror.h"
 
-extern Mirror gMirror;
+extern Mirror *gMirror;
+extern Mirror *mirror1;
+extern Mirror *mirror2;
+extern Mirror *mirror3;
+extern Mirror *mirror4;
 
 class Initializer
 {

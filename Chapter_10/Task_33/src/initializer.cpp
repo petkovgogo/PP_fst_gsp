@@ -3,7 +3,6 @@
 #include "../inc/Mirror.h"
 
 int Initializer::initCount = 0;
-Mirror *pExternMirror = &gMirror;
 
 Initializer::Initializer()
 {
@@ -14,7 +13,11 @@ Initializer::Initializer()
     {
         std::cout << "performing initialization" << std::endl;
 
-        pExternMirror = new Mirror();
+        gMirror = new Mirror();
+        mirror1 = new Mirror(*gMirror);
+        mirror2 = new Mirror(*mirror1);
+        mirror3 = new Mirror(*mirror2);
+        mirror4 = new Mirror(*mirror3);
     }
 }
 
@@ -26,6 +29,10 @@ Initializer::~Initializer()
     {
         std::cout << "performing cleanup" << std::endl;
 
-        delete pExternMirror;
+        delete gMirror;
+        delete mirror1;
+        delete mirror2;
+        delete mirror3;
+        delete mirror4;
     }
 }
