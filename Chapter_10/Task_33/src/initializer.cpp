@@ -29,10 +29,10 @@ Initializer::~Initializer()
     {
         std::cout << "performing cleanup" << std::endl;
 
-        delete gMirror;
-        delete mirror1;
-        delete mirror2;
-        delete mirror3;
         delete mirror4;
+        delete mirror3;
+        delete mirror2;
+        delete mirror1;
+        delete gMirror;
     }
 }
