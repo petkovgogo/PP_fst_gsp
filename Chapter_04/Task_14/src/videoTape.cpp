@@ -69,7 +69,7 @@ void VideoTape::returnTape(Person &person)
     else
     {
         bool notFound = true;
-        for (int i = 0; i < m_renters.size(); i++)
+        for (size_t i = 0; i < m_renters.size(); i++)
         {
             if (m_renters[i] == &person)
             {

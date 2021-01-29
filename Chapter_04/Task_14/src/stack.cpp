@@ -24,10 +24,14 @@ void *Stack::peek()
 void *Stack::pop()
 {
     if (head == 0)
+    {
         return 0;
+    }
+
     void *result = head->data;
     Link *oldHead = head;
     head = head->next;
+
     delete oldHead;
     return result;
 }
@@ -36,6 +40,16 @@ void Stack::cleanup()
 {
     if (head != 0)
     {
-        std::cout << "Stack is not empty" << std::endl;
-    }    
+        std::cout << "Stack is not empty! Cleaning..." << std::endl;
+
+        Link *oldHead;
+
+        while (head != 0)
+        {
+            oldHead = head;
+            head = head->next;
+
+            delete oldHead;
+        }
+    }
 }

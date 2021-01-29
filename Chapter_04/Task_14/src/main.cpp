@@ -21,7 +21,9 @@ int main()
         tapePtr->print();
         delete tapePtr;
     }
-    
+
+    stack.push(new VideoTape("Video tape: 25", 5.80, 3)); // test for the cleanup
+
     stack.cleanup();
 
     return 0;
