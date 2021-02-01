@@ -11,11 +11,11 @@ private:
 
 public:
     Bird();
-    Bird(Bird &origin);
+    Bird(const Bird &origin);
 
-    Bird &operator=(Bird &origin);
+    Bird &operator=( const Bird &origin);
 
-    friend std::ostream &operator<<(std::ostream &out, Bird &bird);
+    friend std::ostream &operator<<(std::ostream &out, const Bird &bird);
 };
 
 #endif // BIRD_H

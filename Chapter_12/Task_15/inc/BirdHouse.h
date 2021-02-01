@@ -12,13 +12,13 @@ private:
     Bird *m_birdPtr;
     Bird &m_birdRef;
 
-    BirdHouse(BirdHouse &);
-    Bird &operator=(Bird &);
+    BirdHouse(const BirdHouse &);
+    Bird &operator=(const Bird &);
 
 public:
     BirdHouse(Bird birdObj, Bird *birdPtr, Bird &birdRef);
 
-    friend std::ostream &operator<<(std::ostream &out, BirdHouse &house);
+    friend std::ostream &operator<<(std::ostream &out, const BirdHouse &house);
 };
 
 #endif // BIRD_HOUSE_H

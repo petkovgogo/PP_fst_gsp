@@ -9,9 +9,9 @@ Bird::Bird()
     m_id = "Bird #" + std::to_string(++id);
 }
 
-Bird::Bird(Bird &origin) : m_id(origin.m_id) {}
+Bird::Bird(const Bird &origin) : m_id(origin.m_id) {}
 
-Bird &Bird::operator=(Bird &origin)
+Bird &Bird::operator=(const Bird &origin)
 {
     if (this != &origin)
     {
@@ -21,7 +21,7 @@ Bird &Bird::operator=(Bird &origin)
     return *this;
 }
 
-std::ostream &operator<<(std::ostream &out, Bird &bird)
+std::ostream &operator<<(std::ostream &out, const Bird &bird)
 {
     out << bird.m_id;
 
