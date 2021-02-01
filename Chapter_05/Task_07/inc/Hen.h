@@ -26,10 +26,10 @@ public:
         Nest();
 
         void addEgg();
-        void display(Hen::Nest::Egg &egg);
+        void display(Egg &egg);
     };
 
-    void display(Hen::Nest &nest);
+    void display(Nest &nest);
 };
 
 #endif
