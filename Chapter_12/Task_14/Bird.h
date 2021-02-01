@@ -10,11 +10,11 @@ private:
 
 public:
     Bird();
-    Bird(Bird &origin);
+    Bird(const Bird &origin);
 
-    Bird &operator=(Bird &origin);
+    Bird &operator=(const Bird &origin);
 
-    friend std::ostream &operator<<(std::ostream &out, Bird &bird);
+    friend std::ostream &operator<<(std::ostream &out, const Bird &bird);
 };
 
 inline Bird::Bird()
@@ -23,9 +23,9 @@ inline Bird::Bird()
     m_id = "Bird #" + std::to_string(++id);
 }
 
-inline Bird::Bird(Bird &origin) : m_id(origin.m_id) {}
+inline Bird::Bird(const Bird &origin) : m_id(origin.m_id) {}
 
-inline Bird &Bird::operator=(Bird &origin)
+inline Bird &Bird::operator=(const Bird &origin)
 {
     if (this != &origin)
     {
@@ -35,7 +35,7 @@ inline Bird &Bird::operator=(Bird &origin)
     return *this;
 }
 
-inline std::ostream &operator<<(std::ostream &out, Bird &bird)
+inline std::ostream &operator<<(std::ostream &out, const Bird &bird)
 {
     out << bird.m_id;
 
