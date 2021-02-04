@@ -6,7 +6,6 @@
 struct Stash
 {
     int size; // Size of each space
-    int next; // Next empty space
     
     // vector of bytes
     std::vector<char> storage;
@@ -14,7 +13,7 @@ struct Stash
     void initialize(int size);
     void cleanup();
     int add(const void *element);
-    void *fetch(int index);
+    void *fetch(size_t index);
     int count();
 };
 

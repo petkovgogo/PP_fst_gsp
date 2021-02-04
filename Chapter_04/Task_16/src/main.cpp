@@ -7,6 +7,7 @@ int main()
 
     Stash doubleStash;
     doubleStash.initialize(sizeof(double));
+    
     for (int i = 1; i <= COUNT; i++)
     {
         doubleStash.add(new double(i * 6.63));

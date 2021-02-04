@@ -6,7 +6,6 @@
 void Stash::initialize(int sz)
 {
     size = sz;
-    next = 0;
 }
 
 int Stash::add(const void *element)
@@ -17,15 +16,12 @@ int Stash::add(const void *element)
         storage.push_back(e[i]);
     }
     
-    next++;
-    return (next - 1); // Index number
+    return storage.size() / size - 1; // Index number
 }
 
-void *Stash::fetch(int index)
+void *Stash::fetch(size_t index)
 {
-    // Check index boundaries:
-    assert(0 <= index);
-    if (index >= next)
+    if (index >= storage.size() / size)
     {
         return 0; // To indicate the end
     }
@@ -36,7 +32,7 @@ void *Stash::fetch(int index)
 
 int Stash::count()
 {
-    return next; // Number of elements in CStash
+    return storage.size() / size; // Number of elements in CStash
 }
 
 void Stash::cleanup()
