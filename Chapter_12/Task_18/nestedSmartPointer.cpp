@@ -70,8 +70,8 @@ public:
             // below zero. So if the index goes below zero, m_index will change its value to the max
             // value of unsigned long. That is why instead of checking for m_index < 0, I am checking
             // for tha value being larger than the size of the vector
-            if (m_index >= m_container.m_objStorage.size() ||
-                m_container.m_objStorage[m_index--] == 0)
+            if (--m_index >= m_container.m_objStorage.size() ||
+                m_container.m_objStorage[m_index] == 0)
             {
                 return false;
             }
@@ -99,7 +99,7 @@ public:
 
     SmartPointer end()
     {
-        return SmartPointer(*this, m_objStorage.size() - 1);
+        return SmartPointer(*this, m_objStorage.size());
     }
 };
 
