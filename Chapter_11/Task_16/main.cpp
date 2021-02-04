@@ -4,22 +4,20 @@ class CopyCat
 {
 public:
     CopyCat() {}
-    CopyCat(CopyCat &cc)
+    CopyCat(const CopyCat &)
     {
         std::cout << "Using CopyCat copy-constructor ";
     }
 };
 
-void passedArgumentCC(CopyCat copyCat)
+void passedArgumentCC(CopyCat)
 {
     std::cout << "after passing by value." << std::endl;
 }
 
-CopyCat &returnedValueCC()
+const CopyCat returnedValueCC()
 {
-    CopyCat copyCat;
-
-    return copyCat;
+    return CopyCat();
 }
 
 int main()
@@ -28,9 +26,11 @@ int main()
 
     passedArgumentCC(copyCat1);
 
-    CopyCat copyCat2 = returnedValueCC();
+    CopyCat copyCat2 = returnedValueCC(); // copy-constructor is not being called (?)
 
     std::cout << "after returning temporary object." << std::endl;
+
+    passedArgumentCC(copyCat2);
 
     return 0;
 }
