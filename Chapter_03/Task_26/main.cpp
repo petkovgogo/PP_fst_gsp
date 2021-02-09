@@ -9,7 +9,7 @@
                                      \
     std::cout << " ]" << std::endl;
 
-void setBytes(void *vpArr, int byteRange, int value)
+void setBytes(void *vpArr, int byteRange, char value)
 {
     char *cpArr = static_cast<char *>(vpArr);
 
