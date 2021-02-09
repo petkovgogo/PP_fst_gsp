@@ -6,7 +6,7 @@
               << " Address: " << (long)EXP << std::endl \
               << " Value: " << EXP << std::endl;
 
-char *func(const char *text)
+char *func(char *text)
 {
     const int SIZE = strlen(text);
     char *newText = new char[SIZE + 1]; // + 1 for the '\0'
