@@ -73,10 +73,9 @@ int main()
 
 #endif // SHOW_ERROR
 
-    Derived3 d3;
-
 #ifdef SHOW_ERROR
 
+    Derived3 d3;
     x = d3.f(); // return int version hidden
 
 #endif // SHOW_ERROR
@@ -90,6 +89,8 @@ int main()
 #endif // SHOW_ERROR
 
     x = d4.f(1);
+
+    std::cout << "x = " << x << std::endl;
 
     return 0;
 }
