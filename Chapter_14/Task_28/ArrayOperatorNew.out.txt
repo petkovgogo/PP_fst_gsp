@@ -1,0 +1,11 @@
+new WidgetHeir
+Widget::new: 40 bytes
+*
+delete WidgetHeir
+~Widget::delete
+
+new WidgetHeir[12]
+Widget::new[]: 488 bytes
+************
+delete []WidgetHeir
+~~~~~~~~~~~~Widget::delete[]
