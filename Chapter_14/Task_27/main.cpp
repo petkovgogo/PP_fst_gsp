@@ -34,6 +34,7 @@ public:
 
 class Implementation1 : public Subject
 {
+public:
     void f() const { std::cout << __PRETTY_FUNCTION__ << "\n"; }
     void g() const { std::cout << __PRETTY_FUNCTION__ << "\n"; }
     void h() const { std::cout << __PRETTY_FUNCTION__ << "\n"; }
@@ -43,6 +44,7 @@ class Implementation1 : public Subject
 
 class Implementation2 : public Subject
 {
+public:
     void f() const { std::cout << __PRETTY_FUNCTION__ << "\n"; }
     void g() const { std::cout << __PRETTY_FUNCTION__ << "\n"; }
     void h() const { std::cout << __PRETTY_FUNCTION__ << "\n"; }
