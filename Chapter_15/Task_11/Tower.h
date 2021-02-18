@@ -45,7 +45,7 @@ int Tower::findAircraftIndex(Aircraft *aircraft) const
         }
     }
 
-    return 0;
+    return -1;
 }
 
 inline void Tower::assignAircraft(Aircraft &aircraft)
@@ -54,7 +54,8 @@ inline void Tower::assignAircraft(Aircraft &aircraft)
 
     if (acPtr)
     {
-        std::cout << aircraft << " is already assigned.\n" << std::endl;
+        std::cout << aircraft << " is already assigned.\n"
+                  << std::endl;
 
         return;
     }
@@ -66,14 +67,15 @@ inline void Tower::unassignAircraft(Aircraft &aircraft)
 {
     int index = findAircraftIndex(&aircraft);
 
-    if (index)
+    if (index == -1)
     {
-        m_aircrafts.erase(m_aircrafts.begin() + index);
+        std::cout << aircraft << " is not assigned to this tower.\n"
+                  << std::endl;
 
         return;
     }
-
-    std::cout << aircraft << " is not assigned to this tower.\n" << std::endl;
+    
+    m_aircrafts.erase(m_aircrafts.begin() + index);
 }
 
 inline void Tower::allowTakeoff(Aircraft &aircraft) const
@@ -95,7 +97,8 @@ inline void Tower::allowTakeoff(Aircraft &aircraft) const
         return;
     }
 
-    std::cout << aircraft << " is not assigned to this tower.\n" << std::endl;
+    std::cout << aircraft << " is not assigned to this tower.\n"
+              << std::endl;
 }
 
 inline void Tower::warnAircraft(Aircraft &ac1, Aircraft &ac2) const
@@ -113,7 +116,8 @@ inline void Tower::warnAircraft(Aircraft &ac1, Aircraft &ac2) const
         return;
     }
 
-    std::cout << "One (or both) of theese aircrafts does (do) are not assigned to this tower\n" << std::endl;
+    std::cout << "One (or both) of theese aircrafts does (do) are not assigned to this tower\n"
+              << std::endl;
 }
 
 inline void Tower::allowLanding(Aircraft &aircraft) const
