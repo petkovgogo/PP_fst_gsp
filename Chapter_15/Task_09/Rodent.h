@@ -10,7 +10,7 @@ class Rodent
 public:
 #ifdef VIRTUAL_DESTRUCTOR
 
-    virtual ~Rodent();
+    virtual ~Rodent() = 0;
 
 #else
 
@@ -18,10 +18,10 @@ public:
 
 #endif // VIRTUAL_DESTRUCTOR
 
-    virtual void gnaw() = 0;
-    virtual void move() = 0;
-    virtual void hide() = 0;
-    virtual void squeak() = 0;
+    virtual void gnaw() const = 0;
+    virtual void move() const = 0;
+    virtual void hide() const = 0;
+    virtual void squeak() const = 0;
 };
 
 inline Rodent::~Rodent() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
