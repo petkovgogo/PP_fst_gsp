@@ -6,6 +6,7 @@ class Shape
 {
 public:
     Shape() { draw(); } // prints a warning
+    virtual ~Shape() {}
 
     virtual void draw() = 0;
 };
@@ -46,9 +47,9 @@ int main()
  
     // Shape shape; // cannot create an instance of an abstract class
 
-    Shape **shapeArr = new Shape *[COUNT];
+    Shape *shapeArr[COUNT];
 
-    for (int i = 1; i <= COUNT; i++)
+    for (int i = 0; i < COUNT; i++)
     {
         if (i % 5 == 0)
         {
@@ -66,7 +67,11 @@ int main()
         // shapeArr[i]->draw();
     }
 
-    delete[] shapeArr;
+    for (int i = 0; i < COUNT; i++)
+    {
+        delete shapeArr[i];
+        shapeArr[i] = 0;
+    }
 
     return 0;
 }
