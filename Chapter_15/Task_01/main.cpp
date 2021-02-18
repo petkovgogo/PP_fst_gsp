@@ -3,6 +3,8 @@
 class Shape
 {
 public:
+    virtual ~Shape() {}
+
     virtual void draw() { std::cout << __PRETTY_FUNCTION__ << std::endl; }
 };
 
@@ -27,15 +29,15 @@ public:
 int main()
 {
     const int COUNT = 25;
-    Shape **shapeArr = new Shape*[COUNT];
+    Shape *shapeArr[COUNT];
 
-    for (int i = 1; i <= COUNT; i++)
+    for (int i = 0; i < COUNT; i++)
     {
         if (i % 5 == 0)
         {
             shapeArr[i] = new Circle;
         }
-        else if(i % 2 == 0)
+        else if (i % 2 == 0)
         {
             shapeArr[i] = new Square;
         }
@@ -47,7 +49,11 @@ int main()
         shapeArr[i]->draw();
     }
 
-    delete[] shapeArr;
+    for (int i = 0; i < COUNT; i++)
+    {
+        delete shapeArr[i];
+        shapeArr[i] = 0;
+    }
     
     return 0;
 }
