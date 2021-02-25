@@ -14,8 +14,8 @@ public:
     ~MemStash();
 
     void add(void *data);
-    void *get(int index);
-    int size();
+    void *fetch(int index);
+    int count();
 };
 
 #endif // MEM_STASH_H

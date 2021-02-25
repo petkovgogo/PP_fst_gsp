@@ -38,14 +38,20 @@ void MemStash::add(void *data)
     m_elementCount++;
 }
 
-void *MemStash::get(int index)
+void *MemStash::fetch(int index)
 {
-    assert(index < m_elementCount);
+    assert(index >= 0);
+
+    if (index >= m_elementCount)
+    {
+        return 0;
+    }
+    
 
     return &(m_mem->pointer()[index * m_dataSize]);
 }
 
-int MemStash::size()
+int MemStash::count()
 {
     return m_elementCount;
 }
