@@ -1,3 +1,4 @@
+#include <cstddef> // size_t definition
 #include "../inc/Simple.h"
 
 int main()
@@ -12,7 +13,7 @@ int main()
         Simple(NUM1 / NUM2)
     };
 
-    for (int i = 0; i < sizeof(simpleArr) / sizeof(*simpleArr); i++)
+    for (size_t i = 0; i < sizeof(simpleArr) / sizeof(*simpleArr); i++)
     {
         simpleArr[i].printNumber();
     }
