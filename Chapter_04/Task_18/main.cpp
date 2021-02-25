@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstring>
 
-#define PRINT_ADDRESS_AND_VALUE(EXP)                            \
-    std::cout << #EXP ":" << std::endl                          \
+#define PRINT_ADDRESS_AND_VALUE(EXP)                    \
+    std::cout << #EXP ":" << std::endl                  \
               << " Address: " << (long)EXP << std::endl \
               << " Value: " << EXP << std::endl;
 
@@ -23,7 +23,8 @@ char *func(char *text)
 
 int main()
 {
-    char *copy1 = func("sample text");
+    char text[] = "sample text";
+    char *copy1 = func(text);
     char *copy2 = func(copy1);
 
     PRINT_ADDRESS_AND_VALUE(copy1);
