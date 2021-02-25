@@ -6,7 +6,7 @@ typedef unsigned char byte;
 class Mem
 {
     byte *m_mem;
-    byte *m_oldMem;
+    bool m_hasMoved;
     int m_size;
 
     void ensureMinSize(int minSize);

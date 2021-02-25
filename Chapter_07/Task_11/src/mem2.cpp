@@ -8,13 +8,11 @@ Mem::Mem(int size)
 
     ensureMinSize(size);
 
-    m_oldMem = m_mem;
+    m_hasMoved = false; // It has just been initialised, so technically it hasn't moved
 }
 
 Mem::~Mem()
 {
-    moved(); // to ensure m_oldMem points to the same address as m_mem so both of them get deleted with the next statement
-
     delete[] m_mem;
 }
 
@@ -31,6 +29,7 @@ void Mem::ensureMinSize(int minSize)
         // Copy the existing data into the new array, starting from the address of m_mem for m_size bytes
         memcpy(newMem, m_mem, m_size);
 
+        m_hasMoved = true;
         m_mem = newMem;
         m_size = minSize;
     }
@@ -49,15 +48,14 @@ int Mem::msize()
 // programmer to know if the pointer moved.
 bool Mem::moved()
 {
-    if (m_oldMem == pointer())
+    if (m_hasMoved)
     {
-        return false; // memory has not been reallocated
+        m_hasMoved = false;
+
+        return true; // memory has been reallocated
     }
 
-    delete[] m_oldMem;
-    m_oldMem = m_mem;
-
-    return true; // memory has been reallocated
+    return m_hasMoved; // memory has not been reallocated
 }
 
 byte *Mem::pointer(int minSize)
