@@ -86,7 +86,7 @@ T *PStash<T, incr>::remove(int index)
     T *v = operator[](index);
 
     // "Remove" the pointer:
-    if (!v)
+    if (v)
     {
         storage[index] = 0;
     }
