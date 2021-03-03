@@ -1,6 +1,7 @@
 #ifndef TPSTASH_H
 #define TPSTASH_H
 
+#include <cstring>
 #include <cassert>
 
 template <class T, int incr = 10>
