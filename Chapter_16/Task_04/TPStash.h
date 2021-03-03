@@ -101,9 +101,9 @@ void PStash<T, incr>::inflate(int increase)
 {
     std::cout
         << __PRETTY_FUNCTION__
-        << " used. Current increnent value:"
+        << " used. Current increment value:"
         << increase
-        << " New increment value: "
+        << ". New increment value: "
         << (incrValue *= 2)
         << std::endl;
 
