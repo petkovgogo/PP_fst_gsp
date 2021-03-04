@@ -26,7 +26,7 @@ int main()
     {
         std::cout << it->c_str() << std::endl;
         it++;
-        if (++i == 9) // Remember 10th line
+        if (++i == 2) // Remember 10th line
         {
             it2 = new Stack<std::string>::iterator(it);
         }
