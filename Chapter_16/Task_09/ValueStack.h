@@ -27,7 +27,7 @@ private:
             m_quantity += m_incrVal;
             m_incrVal *= 2;
 
-            std::cout << "Size increased to " << m_quantity << std::endl;
+            std::cout << "\n<--- Size increased to " << m_quantity << " --->\n" << std::endl;
         }
     }
 

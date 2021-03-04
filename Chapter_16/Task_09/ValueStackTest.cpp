@@ -6,7 +6,7 @@ int main()
 {
     Stack<SelfCounter> sc;
 
-    const int COUNT = 15;
+    const int COUNT = 50;
 
     for (int i = 0; i < COUNT; i++)
     {
