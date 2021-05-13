@@ -23,7 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include "math.h"
+#include <math.h>
 
 /* USER CODE END Includes */
 
@@ -64,9 +64,6 @@ static void MX_USART2_UART_Init(void);
 static void MX_DAC_Init(void);
 /* USER CODE BEGIN PFP */
 
-static void DWT_Init (void);
-
-void DWT_Delay_us(uint32_t us);
 void generateSinewave (int, int);
 
 /* USER CODE END PFP */
@@ -108,7 +105,6 @@ int main(void)
   MX_DAC_Init();
   /* USER CODE BEGIN 2 */
 
-    DWT_Init();
     HAL_DAC_Start (&hdac, DAC_CHANNEL_1);
 
   /* USER CODE END 2 */
@@ -121,7 +117,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-        generateSinewave(1650, 10);
+        generateSinewave(1650, 69);
     }
   /* USER CODE END 3 */
 }
@@ -276,27 +272,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
-void DWT_Init (void)
-{
-    // Enable the CYCCNT
-    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
-
-    DWT->CYCCNT = 0; // reset the counter
-}
-
-void DWT_Delay_us(uint32_t us)
-{
-    uint32_t initialTicks = DWT->CYCCNT;
-
-    // calculate the number of ticks it takes for 1us
-    uint32_t ticks = HAL_RCC_GetHCLKFreq() / 1000000;
-
-    // calculate the total number of ticks for the interval
-    us *= ticks;
-
-    while ((DWT->CYCCNT - initialTicks) < us);
-}
 
 void generateSinewave (int voltage, int frequency)
 {
