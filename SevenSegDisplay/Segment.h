@@ -16,6 +16,4 @@ typedef struct
     uint16_t pin;
 } Segment;
 
-void createSegment (Segment *seg, GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin);
-
 #endif /* INC_SEGMENT_H_ */
