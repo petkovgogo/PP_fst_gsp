@@ -35,9 +35,9 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define TOLERANCE 50 // mV
-#define PI 3.14
-#define MAX_VOLTAGE 3300.0 // mA
+#define TOLERANCE 0.05 // V
+#define PI 3.14159265
+#define MAX_VOLTAGE 3.3 // V
 #define MAX_DAC_OUT 4095
 #define VOLTG_DAC_COEF MAX_DAC_OUT / MAX_VOLTAGE
 
@@ -64,7 +64,7 @@ static void MX_USART2_UART_Init(void);
 static void MX_DAC_Init(void);
 /* USER CODE BEGIN PFP */
 
-void generateSinewave (int, int);
+void generateSineWave (float, int);
 
 /* USER CODE END PFP */
 
@@ -117,7 +117,7 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
 
-        generateSinewave(1650, 69);
+        generateSineWave(1, 100);
     }
   /* USER CODE END 3 */
 }
@@ -273,19 +273,25 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void generateSinewave (int voltage, int frequency)
+/**
+ * @brief Generates a sine wave from a given amplitude and frequency
+ * @param Amplitude in [V]
+ * @param Frequency in [Hz]
+ * @retval None
+ */
+void generateSineWave (float voltage, int frequency)
 {
     voltage -= TOLERANCE;
 
-    uint32_t amplitude = voltage * VOLTG_DAC_COEF;
-    uint32_t sampleInterval = 1.0 / frequency * pow (10, 3);
+    uint32_t amplitude = voltage * VOLTG_DAC_COEF + 0.5;
 
-    double sampleRate = 2 * PI / sampleInterval;
+    float sampleInterval = 1000.0 / frequency;
+    float sampleRate = 2 * PI / sampleInterval;
 
-    for (double i = 0; i < 2 * PI; i += sampleRate)
+    for (float i = 0; i < 2 * PI; i += sampleRate)
     {
         HAL_DAC_SetValue (&hdac, DAC_CHANNEL_1, DAC_ALIGN_12B_R,
-                          (sin (i) + 1) * amplitude + TOLERANCE);
+                          (sin (i) + 1) * amplitude + TOLERANCE * VOLTG_DAC_COEF);
 
         HAL_Delay(1);
     }
