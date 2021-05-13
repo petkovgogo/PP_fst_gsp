@@ -1,3 +1,5 @@
 .vscode
 /bin
 /Makefile
+.settings
+Debug
