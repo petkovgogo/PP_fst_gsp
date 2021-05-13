@@ -1,2 +1,0 @@
-C++ -> _ZN5Robot8greetingEv
-C   -> greeting

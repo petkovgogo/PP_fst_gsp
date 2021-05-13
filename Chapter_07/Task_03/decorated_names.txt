@@ -1,9 +1,0 @@
-Text's constructor => _ZN4TextC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE@PLT
-
-Text's contents function => _ZN4Text8contentsB5cxx11Ev@PLT
-
-Message's constructor => _ZN7MessageC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE@PLT
-
-Message's print() function => _ZN7Message5printEv@PLT
-
-Message's print(std::string bonusMessage) => _ZN7Message5printENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE@PLT
